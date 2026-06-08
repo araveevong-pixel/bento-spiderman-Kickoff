@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bento × Spider-Man 2026 — Campaign Kickoff Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFAF8;
+    --surface:#FFFFFF;
+    --ink:#1A1A1A;
+    --ink-2:#3D3D38;
+    --ink-3:#63635C;
+    --line:#E8E7E2;
+    --red:#C3322F;
+    --red-soft:#F8E9E8;
+    --amber:#A77B22;
+    --amber-soft:#F5EEDC;
+    --blue:#36508C;
+    --blue-soft:#E7ECF6;
+    --dark:#1A1A1A;
+    --dark-soft:#ECECE8;
+    --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'IBM Plex Sans Thai','Inter',sans-serif;
+    background:var(--bg);color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    font-size:15px;line-height:1.65;
+  }
+  .num{font-family:'Inter','IBM Plex Sans Thai',sans-serif;font-feature-settings:'tnum'}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+  .micro{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,250,248,.88);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:58px}
+  .nav-brand{font-weight:700;font-size:14px;letter-spacing:.02em}
+  .nav-brand em{font-style:normal;color:var(--red)}
+  .nav-links{display:flex;gap:26px}
+  .nav-links a{
+    text-decoration:none;color:var(--ink-3);font-size:13px;font-weight:500;
+    transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--ink)}
+
+  /* ---------- HERO ---------- */
+  header{padding:84px 0 56px;border-bottom:1px solid var(--line)}
+  .hero-tag{display:inline-flex;align-items:center;gap:8px;margin-bottom:26px}
+  .hero-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--red)}
+  h1{font-size:clamp(34px,5vw,54px);font-weight:700;line-height:1.18;letter-spacing:-.01em}
+  h1 .x{color:var(--red);font-weight:300;margin:0 .12em}
+  .hero-sub{margin-top:18px;font-size:16px;color:var(--ink-2);max-width:560px;font-weight:300}
+  .hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:48px}
+  .stat{background:var(--surface);padding:20px 22px}
+  .stat .v{font-size:24px;font-weight:600;letter-spacing:-.01em}
+  .stat .v small{font-size:13px;font-weight:400;color:var(--ink-3);margin-left:2px}
+  .stat .k{font-size:12px;color:var(--ink-3);margin-top:2px}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:72px 0;border-bottom:1px solid var(--line)}
+  .sec-head{margin-bottom:40px}
+  .sec-head h2{font-size:26px;font-weight:700;margin-top:10px;letter-spacing:-.01em}
+  .sec-head p{color:var(--ink-2);margin-top:8px;max-width:620px;font-weight:300}
+
+  /* ---------- TIMELINE STRIP ---------- */
+  .strip{display:grid;grid-template-columns:repeat(9,1fr);gap:6px}
+  .wk{
+    border-radius:10px;padding:14px 10px 12px;min-height:118px;
+    background:var(--surface);border:1px solid var(--line);
+    display:flex;flex-direction:column;gap:4px;position:relative;overflow:hidden;
+  }
+  .wk::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--pc,var(--line))}
+  .wk .w{font-size:11px;font-weight:700;color:var(--pc,var(--ink-3));letter-spacing:.08em}
+  .wk .d{font-size:10.5px;color:var(--ink-3)}
+  .wk .t{font-size:12px;font-weight:600;line-height:1.35;margin-top:auto}
+  .wk .star{color:var(--red)}
+  .strip-legend{display:flex;gap:24px;margin-top:18px;flex-wrap:wrap}
+  .strip-legend span{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-2)}
+  .strip-legend i{width:18px;height:3px;border-radius:2px;display:inline-block}
+
+  /* ---------- BUDGET BAR ---------- */
+  .budget-flow{margin-top:56px}
+  .bbar{display:flex;height:54px;border-radius:12px;overflow:hidden;margin-top:16px}
+  .bbar div{display:flex;flex-direction:column;justify-content:center;padding:0 16px;color:#fff;min-width:0}
+  .bbar .b1{background:#BE5F5C}
+  .bbar .b2{background:var(--red)}
+  .bbar .b3{background:#75756D}
+  .bbar b{font-size:14px;font-weight:600;white-space:nowrap}
+  .bbar span{font-size:10.5px;opacity:.85;white-space:nowrap}
+
+  /* ---------- SPEND CHART ---------- */
+  .chart{margin-top:56px}
+  .chart-grid{display:grid;grid-template-columns:repeat(9,1fr);gap:6px;align-items:end;height:150px;margin-top:22px}
+  .bar{position:relative;border-radius:6px 6px 3px 3px;background:var(--pc,var(--red));opacity:.92;transition:opacity .2s;min-height:4px}
+  .bar:hover{opacity:1}
+  .bar .lbl{position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:10.5px;color:var(--ink-2);font-weight:600;white-space:nowrap}
+  .chart-x{display:grid;grid-template-columns:repeat(9,1fr);gap:6px;margin-top:8px}
+  .chart-x span{text-align:center;font-size:10.5px;color:var(--ink-3)}
+
+  /* ---------- PHASE CARDS ---------- */
+  .phase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .pcard{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 24px 22px;cursor:pointer;position:relative;overflow:hidden;
+    transition:border-color .2s, transform .2s, box-shadow .2s;
+  }
+  .pcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--pc)}
+  .pcard:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(26,26,26,.06)}
+  .pcard.active{border-color:var(--pc);box-shadow:0 8px 28px rgba(26,26,26,.07)}
+  .pcard .ph{font-size:11px;letter-spacing:.14em;font-weight:700;color:var(--pc)}
+  .pcard h3{font-size:19px;font-weight:700;margin:8px 0 2px}
+  .pcard .pd{font-size:12.5px;color:var(--ink-3)}
+  .pcard ul{list-style:none;margin:16px 0 18px;display:flex;flex-direction:column;gap:6px}
+  .pcard li{font-size:13px;color:var(--ink-2);padding-left:16px;position:relative;font-weight:300}
+  .pcard li::before{content:'·';position:absolute;left:2px;color:var(--pc);font-weight:700}
+  .pcard .pfoot{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid var(--line);padding-top:14px}
+  .pcard .goal{font-size:11.5px;color:var(--ink-3)}
+  .pcard .goal b{display:block;font-size:13px;color:var(--ink);font-weight:600}
+  .pcard .money{text-align:right;font-size:11.5px;color:var(--ink-3)}
+  .pcard .money b{display:block;font-size:19px;color:var(--pc);font-weight:700;letter-spacing:-.01em}
+  .pcard .hint{margin-top:14px;font-size:11.5px;color:var(--ink-3);display:flex;align-items:center;gap:6px}
+  .pcard .hint svg{transition:transform .25s}
+  .pcard.active .hint svg{transform:rotate(180deg)}
+
+  /* ---------- PHASE DETAIL ---------- */
+  .pdetail{
+    display:none;margin-top:14px;background:var(--surface);
+    border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+    animation:fadeIn .3s ease;
+  }
+  .pdetail.open{display:block}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .pdetail-head{padding:24px 28px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .pdetail-head h4{font-size:16px;font-weight:700}
+  .pdetail-head h4 span{color:var(--pc)}
+  .pdetail-head .sum{font-size:12.5px;color:var(--ink-3)}
+  .pdetail-head .sum b{color:var(--ink);font-weight:600}
+  .row-head,.post-row{
+    display:grid;grid-template-columns:64px 1.45fr 96px 1fr 110px 1.1fr;
+    gap:14px;align-items:center;padding:14px 28px;
+  }
+  .row-head{border-bottom:1px solid var(--line);background:#FCFCFA}
+  .row-head span{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+  .post-row{border-bottom:1px solid var(--line)}
+  .post-row:last-child{border-bottom:none}
+  .post-row:hover{background:#FCFCFA}
+  .pr-date{text-align:center}
+  .pr-date .dd{font-size:18px;font-weight:700;line-height:1.1}
+  .pr-date .mm{font-size:10.5px;color:var(--ink-3)}
+  .pr-title{font-size:13.5px;font-weight:600;line-height:1.4}
+  .pr-title .star{color:var(--red)}
+  .pr-title .how{display:block;font-size:11.5px;color:var(--ink-3);font-weight:400;margin-top:3px}
+  .chip{
+    display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.04em;
+    padding:3px 9px;border-radius:99px;white-space:nowrap;
+  }
+  .chip.A{background:var(--amber-soft);color:var(--amber)}
+  .chip.B{background:var(--red-soft);color:var(--red)}
+  .chip.C{background:var(--blue-soft);color:var(--blue)}
+  .chip.D{background:var(--dark-soft);color:var(--dark)}
+  .pr-own .own{
+    display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.03em;
+    padding:3px 11px;border-radius:99px;white-space:nowrap;
+  }
+  .pr-own .own.bento{background:var(--dark);color:#fff}
+  .pr-own .own.kol{background:#fff;color:var(--blue);border:1.5px solid var(--blue)}
+  .pr-own small{display:block;font-size:11px;color:var(--ink-3);margin-top:5px;line-height:1.45}
+  .pr-budget{text-align:right;font-size:14px;font-weight:600}
+  .pr-budget small{display:block;font-size:10.5px;color:var(--ink-3);font-weight:400}
+  .flight{position:relative;height:26px}
+  .flight .track{position:absolute;top:11px;left:0;right:0;height:4px;border-radius:2px;background:var(--line)}
+  .flight .fill{position:absolute;top:9px;height:8px;border-radius:4px;background:var(--pc);opacity:.85}
+  .flight .fl{position:absolute;top:-7px;font-size:10px;color:var(--ink-3);white-space:nowrap}
+
+  /* ---------- KOL STRATEGY ---------- */
+  .kbar{display:flex;height:54px;border-radius:12px;overflow:hidden;margin-bottom:40px}
+  .kbar div{display:flex;flex-direction:column;justify-content:center;padding:0 16px;color:#fff;min-width:0}
+  .kbar b{font-size:14px;font-weight:600;white-space:nowrap}
+  .kbar span{font-size:10.5px;opacity:.88;white-space:nowrap}
+  .kol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .kcard{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px 26px;position:relative;overflow:hidden;
+  }
+  .kcard::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--kc)}
+  .kcard-top{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .kcard .kno{
+    width:44px;height:44px;border-radius:50%;background:var(--kc);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:20px;font-weight:700;flex-shrink:0;
+  }
+  .kcard h3{font-size:18px;font-weight:700;line-height:1.3}
+  .kcard .kbudget{
+    display:flex;justify-content:space-between;align-items:baseline;
+    border-bottom:1px solid var(--line);padding:10px 0 14px;margin-bottom:18px;
+  }
+  .kcard .kbudget span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+  .kcard .kbudget b{font-size:22px;font-weight:700;color:var(--kc);letter-spacing:-.01em}
+  .kcard dl{display:flex;flex-direction:column;gap:13px}
+  .kcard dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--kc);font-weight:700}
+  .kcard dd{font-size:13px;color:var(--ink-2);line-height:1.55;margin-top:2px}
+  .kcard dd.opener{font-style:italic}
+
+  /* ---------- MEDIA STRATEGY ---------- */
+  .plat{margin-bottom:48px}
+  .plat-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+  .plat-head h3{font-size:16px;font-weight:700;letter-spacing:.01em}
+  .plat-head .amt{font-size:16px;font-weight:700;color:var(--red)}
+  .funnel{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .fstep{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .fstep .fno{font-size:11px;letter-spacing:.12em;font-weight:700;color:var(--red)}
+  .fstep h4{font-size:16px;font-weight:700;margin:6px 0 2px}
+  .fstep .fp{font-size:11.5px;color:var(--ink-3);margin-bottom:14px}
+  .fstep dl{display:flex;flex-direction:column;gap:9px}
+  .fstep dt{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+  .fstep dd{font-size:12.5px;color:var(--ink-2);margin-bottom:3px;line-height:1.5}
+  .fstep dd code{
+    font-family:'Inter',monospace;font-size:11px;background:#F4F4F0;
+    padding:1.5px 7px;border-radius:5px;color:var(--ink-2);white-space:nowrap;
+  }
+
+  .tgt{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:52px}
+  .tgt-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .tgt-card h4{font-size:14px;font-weight:700;margin-bottom:14px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{font-size:12px;padding:5px 13px;border-radius:99px;background:#F4F4F0;color:var(--ink-2)}
+  .tag.hot{background:var(--red-soft);color:var(--red);font-weight:600}
+  .seg-row{display:flex;justify-content:space-between;font-size:12.5px;padding:8px 0;border-bottom:1px dashed var(--line)}
+  .seg-row:last-child{border-bottom:none}
+  .seg-row span:first-child{color:var(--ink-2)}
+  .seg-row span:last-child{font-weight:600}
+
+
+  @media(max-width:920px){
+    .strip{grid-template-columns:repeat(3,1fr)}
+    .phase-grid,.funnel,.kol-grid{grid-template-columns:1fr}
+    .row-head{display:none}
+    .post-row{display:block;padding:18px 22px}
+    .post-row>*{margin-bottom:6px}
+    .pr-budget{text-align:left}
+    .pr-date{display:flex;gap:6px;align-items:baseline;text-align:left}
+    .tgt{grid-template-columns:1fr}
+    .nav-links{display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <div class="nav-brand">BENTO <em>×</em> SPIDER-MAN <span style="color:var(--ink-3);font-weight:400">· Kickoff Plan</span></div>
+    <div class="nav-links">
+      <a href="#overview">ภาพรวม</a>
+      <a href="#timeline">ไทม์ไลน์</a>
+      <a href="#kols">KOLs</a>
+      <a href="#phases">เฟสซิ่ง</a>
+      <a href="#media">Media Strategy</a>
+    </div>
+  </div>
+</nav>
+
+<header id="overview">
+  <div class="wrap">
+    <div class="hero-tag"><span class="dot"></span><span class="micro">Campaign Kickoff · Detail Plan</span></div>
+    <h1>BENTO<span class="x">×</span>SPIDER-MAN</h1>
+    <p class="hero-sub">"โตมาด้วยกัน" — แคมเปญที่ผูกรสชาติคลาสสิกของเบนโตะ เข้ากับฮีโร่ที่อยู่ในความทรงจำของคนทุกเจน · 1 ก.ค. – 31 ส.ค. 2569</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="v num">2.3<small>M฿</small></div><div class="k">Total Budget</div></div>
+      <div class="stat"><div class="v num">800<small>K฿</small></div><div class="k">Media Budget</div></div>
+      <div class="stat"><div class="v num">9<small>สัปดาห์</small></div><div class="k">1 ก.ค. – 31 ส.ค.</div></div>
+      <div class="stat"><div class="v num">6<small>Draws</small></div><div class="k">จับรางวัลทุกพุธ</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="timeline">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="micro">01 · Timeline Overview</span>
+      <h2>9 สัปดาห์ · 3 เฟส</h2>
+      <p>Build-Up → Peak → Tail · กระจายงบและ KOL drops ตาม activity — คลิกที่เฟสด้านล่าง (ส่วนที่ 02) เพื่อดูรายละเอียดรายวัน</p>
+    </div>
+
+    <div class="strip" id="weekStrip"></div>
+    <div class="strip-legend">
+      <span><i style="background:#BE5F5C"></i>Phase 1 · Build-Up</span>
+      <span><i style="background:var(--red)"></i>Phase 2 · Peak</span>
+      <span><i style="background:#75756D"></i>Phase 3 · Tail</span>
+      <span style="color:var(--red);font-weight:600">★ Special Event</span>
+    </div>
+
+    <div class="budget-flow">
+      <span class="micro">Media Budget Allocation · ฿800,000 · แบ่งตามกลุ่มคอนเทนต์</span>
+      <div class="bbar">
+        <div style="flex:70;background:#BE5F5C"><b>฿70K</b><span>Page หนัง</span></div>
+        <div style="flex:80;background:#36508C"><b>฿80K</b><span>ช่องหนัง</span></div>
+        <div style="flex:150;background:#D99E00"><b>฿150K</b><span>เพจโปรโมชั่น</span></div>
+        <div style="flex:100;background:#1A1A1A"><b>฿100K</b><span>Bento · Promo</span></div>
+        <div style="flex:400;background:var(--red)"><b>฿400K</b><span>KOLs รีวิว</span></div>
+      </div>
+      <p style="margin-top:12px;font-size:12px;color:var(--ink-3)">+ ฿20,000 งบแยกสำหรับคอนเทนต์เพจ Bento ที่ไม่ใช่โปรโมชั่น (6 โพสต์ · หารเฉลี่ยโพสต์ละ ~฿3,333) — ไม่รวมใน ฿800K</p>
+    </div>
+
+    <div class="chart">
+      <span class="micro">Estimated Weekly Spend · คำนวณจาก flight ของแต่ละโพสต์</span>
+      <div class="chart-grid" id="spendChart"></div>
+      <div class="chart-x" id="spendX"></div>
+    </div>
+  </div>
+</section>
+
+<section id="kols">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="micro">02 · KOL Strategy</span>
+      <h2>3 หมวด KOL · งบรวม ฿1,400,000</h2>
+      <p>แต่ละหมวดมี Voice / Hook / Goal ของตัวเอง — บรีฟด้วย template กลาง เพื่อให้ feed มีหลายมิติแต่เสียงเดียวกัน</p>
+    </div>
+
+    <div class="kbar">
+      <div style="flex:300;background:var(--red)"><b>฿300K</b><span>เพจ + ช่องหนัง</span></div>
+      <div style="flex:200;background:#D99E00"><b>฿200K</b><span>เพจโปรโมชั่น</span></div>
+      <div style="flex:900;background:#34418F"><b>฿900K</b><span>KOLs รีวิว</span></div>
+    </div>
+
+    <div class="kol-grid">
+      <div class="kcard" style="--kc:var(--red)">
+        <div class="kcard-top">
+          <div class="kno">1</div>
+          <h3>เพจหนัง + ช่องหนัง</h3>
+        </div>
+        <div class="kbudget"><span>Budget</span><b class="num">฿300,000</b></div>
+        <dl>
+          <dt>Voice</dt>
+          <dd>Nostalgic · Cultural · Emotional</dd>
+          <dt>Hook</dt>
+          <dd>"ขนมและหนังที่โตมาด้วยกัน"</dd>
+          <dt>Goal</dt>
+          <dd>สร้าง emotional bridge · ดึงแฟนหนัง Gen Y/Z</dd>
+          <dt>Sample Opener</dt>
+          <dd class="opener">"นี่คือขนมและหนังที่โตมาด้วยกันของแท้ พลาดไม่ได้" — เปิดเรื่องด้วย Tobey 2002 → 2026</dd>
+        </dl>
+      </div>
+
+      <div class="kcard" style="--kc:#D99E00">
+        <div class="kcard-top">
+          <div class="kno">2</div>
+          <h3>เพจโปรโมชั่น</h3>
+        </div>
+        <div class="kbudget"><span>Budget</span><b class="num">฿200,000</b></div>
+        <dl>
+          <dt>Voice</dt>
+          <dd>Loud · Hype · Prize-focused</dd>
+          <dt>Hook</dt>
+          <dd>"เป็นล้าน เล่นใหญ่กว่านี้มีอีกมั้ย"</dd>
+          <dt>Goal</dt>
+          <dd>สร้าง FOMO · drive participation · พุ่งยอดโพสต์</dd>
+          <dt>Sample Opener</dt>
+          <dd class="opener">"เบนโตะแจกเป็นล้านนนนนนน เล่นใหญ่กว่านี้มีอีกมั้ย" — เน้น 2.3M+ และ PS5</dd>
+        </dl>
+      </div>
+
+      <div class="kcard" style="--kc:#34418F">
+        <div class="kcard-top">
+          <div class="kno">3</div>
+          <h3>KOLs รีวิว</h3>
+        </div>
+        <div class="kbudget"><span>Budget</span><b class="num">฿900,000</b></div>
+        <dl>
+          <dt>Voice</dt>
+          <dd>Casual · Friendly · เพื่อนคุยกัน</dd>
+          <dt>Hook</dt>
+          <dd>"เป็นล้านเลยยยหรอออพรี่!"</dd>
+          <dt>Goal</dt>
+          <dd>รีวิวจริง · บอกต่อแบบเพื่อนสนิท · ลด barrier to try</dd>
+          <dt>Sample Opener</dt>
+          <dd class="opener">"เป็นล้านเลยยยหรอออพรี่!" — เปิดด้วย reaction · รีวิวตามลายซองทุกระดับความเผ็ด</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="phases">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="micro">03 · Campaign Phasing</span>
+      <h2>คลิกแต่ละเฟสเพื่อดูแผนรายวัน</h2>
+      <p>ทุกโพสต์จับคู่กับงบ media และ flight period ว่าเงินรันถึงวันไหน — รายละเอียดวิธียิงแอดอยู่ที่ส่วน Media Strategy ท้ายหน้า</p>
+    </div>
+    <div class="phase-grid" id="phaseGrid"></div>
+    <div id="phaseDetails"></div>
+  </div>
+</section>
+
+<section id="media">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="micro">04 · Media Strategy</span>
+      <h2>ยิงแอดอย่างไร · ใช้เงินกับอะไร · ทาร์เกตใคร</h2>
+      <p>วางตาม funnel — Cold → Warm → Hot · แต่ละ step retarget ต่อจาก step ก่อนหน้า · แยกวิธียิงตาม platform</p>
+    </div>
+
+    <div class="plat">
+      <div class="plat-head">
+        <h3>FACEBOOK · META</h3>
+        <span class="amt num">฿400,000</span>
+      </div>
+      <div class="funnel">
+        <div class="fstep">
+          <div class="fno">STEP 1 — COLD</div>
+          <h4>เปิดตัววงกว้าง</h4>
+          <div class="fp">Phase 1 · Build-Up · ฿90K</div>
+          <dl>
+            <dt>Objective</dt>
+            <dd>Engagement-Post + Reach (asset ภาพทั้งหมด)</dd>
+            <dt>Bidding</dt>
+            <dd>Highest Volume — เก็บ baseline ก่อน · ABO ช่วง test</dd>
+            <dt>Audience</dt>
+            <dd><code>SA: Broad 18-45</code> <code>INT_Marvel · Movies</code> <code>INT_Gaming</code> <code>CA: Bento Eng 365D + LAL 1%</code><br>
+            <code>CA: เพจโปรโมชั่น Eng + LAL 1%</code> <code>CA: เพจผู้บริโภค Eng + LAL 1%</code> <code>CA: เพจ 7-11 Eng + LAL 1%</code> — first-party จากแคมเปญเดิม ใช้เป็น seed หาคนใหม่ที่โปรไฟล์เหมือนคนเคยสนใจ</dd>
+          </dl>
+        </div>
+        <div class="fstep">
+          <div class="fno">STEP 2 — WARM</div>
+          <h4>Retarget + ดันร่วมสนุก</h4>
+          <div class="fp">Phase 2 · Peak · ฿292K</div>
+          <dl>
+            <dt>Objective</dt>
+            <dd>Engagement + Reach (เพจ Bento · เพจโปรโม · Page หนัง) · Meta VDO เฉพาะคลิปช่องหนัง</dd>
+            <dt>Bidding</dt>
+            <dd>CBO ตอน scale · Lifetime Budget + Ad Scheduling ช่วงเย็น-ค่ำ</dd>
+            <dt>Audience</dt>
+            <dd><code>CA: P1 Post Engagers</code> <code>CA: Page Eng 365D</code> + Broad ขยายต่อเนื่อง · Geo-fence รอบโรงหนัง SF ช่วง Premiere</dd>
+          </dl>
+        </div>
+        <div class="fstep">
+          <div class="fno">STEP 3 — HOT</div>
+          <h4>Frequency Push · Last Chance</h4>
+          <div class="fp">Phase 3 · Tail · ฿18K</div>
+          <dl>
+            <dt>Objective</dt>
+            <dd>Reach + frequency cap 3 ครั้ง / 7 วัน — เป้าหมายคือ "ลูกค้ารีบเข้าร่วมกิจกรรม" ไม่ใช่ reach ใหม่</dd>
+            <dt>Bidding</dt>
+            <dd>Maximum Delivery (CPM)</dd>
+            <dt>Audience</dt>
+            <dd><code>CA: All Content Eng</code> · Original Audience ปิด expansion · Excl. คนที่โพสต์ร่วมสนุกแล้ว</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <div class="plat">
+      <div class="plat-head">
+        <h3>TIKTOK · SPARK ADS (KOLs รีวิว)</h3>
+        <span class="amt num">฿400,000</span>
+      </div>
+      <div class="funnel">
+        <div class="fstep">
+          <div class="fno">STEP 1 — COLD</div>
+          <h4>Spark ปูพรมวันเดียว</h4>
+          <div class="fp">17 ก.ค. · KOL สายรีวิวโพสต์พร้อมกันทุกคน</div>
+          <dl>
+            <dt>Objective</dt>
+            <dd>Video Views (6s focused view) — boost ทุกคลิปเท่ากันช่วงแรก</dd>
+            <dt>Bidding</dt>
+            <dd>Maximum Delivery · Manual campaign (ไม่ใช้ Smart+ เพราะไม่มี conversion signal)</dd>
+            <dt>Audience</dt>
+            <dd><code>CA: Bento KOL VDO Viewers (แคมเปญเก่า)</code> — ยิงก่อนเป็นชั้นแรกวันเปิดตัว คนเคยดูตอบสนองไวกว่า cold จริง<br>
+            <code>LAL จาก Viewers เก่า</code> ขยายหาคนโปรไฟล์เดียวกัน + <code>Audience controls 18-45</code> <code>INT_Snack · Spicy Food</code> + Broad ให้ระบบขยาย</dd>
+          </dl>
+        </div>
+        <div class="fstep">
+          <div class="fno">STEP 2 — WARM</div>
+          <h4>Winner-Takes-More</h4>
+          <div class="fp">รีวิวผลทุก 3 วัน · 20 ก.ค. – 9 ส.ค.</div>
+          <dl>
+            <dt>Objective</dt>
+            <dd>Video Views + Community Interaction — เทงบเข้าคลิปที่ VV/Engagement ดีสุด</dd>
+            <dt>Bidding</dt>
+            <dd>Maximum Delivery · TikTok รับ budget change ได้ ~50%/วัน ไม่กระทบ learning</dd>
+            <dt>Audience</dt>
+            <dd><code>CA: KOL VDO Viewers > 25% (แคมเปญนี้)</code> + <code>CA: Viewers แคมเปญเก่า</code> รวมเป็นก้อนเดียว · Broad ต่อเนื่อง · Excl. frequency สูงเกิน</dd>
+          </dl>
+        </div>
+        <div class="fstep">
+          <div class="fno">STEP 3 — HOT</div>
+          <h4>Retarget Viewers ช่วงท้าย</h4>
+          <div class="fp">ช่วง Draw ท้ายแคมเปญ · ภายในงบก้อนเดียวกัน</div>
+          <dl>
+            <dt>Objective</dt>
+            <dd>Reach + frequency cap — ย้ำคลิปชนะกับคนที่เคยดู ก่อนปิดรับโพสต์</dd>
+            <dt>Bidding</dt>
+            <dd>Maximum Delivery (CPM)</dd>
+            <dt>Audience</dt>
+            <dd><code>CA: KOL VDO Viewers</code> <code>CA: Profile Visitors</code> · Excl. คนที่โพสต์ร่วมสนุกแล้ว</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <div class="tgt">
+      <div class="tgt-card">
+        <h4>Target Audience · Online</h4>
+        <div class="seg-row"><span>อายุ (targeting)</span><span class="num">18 – 45 ปี</span></div>
+        <div class="seg-row"><span>เพศ (M : F)</span><span class="num">80 : 20</span></div>
+        <div class="seg-row"><span>พื้นที่</span><span>ทั่วประเทศ</span></div>
+        <div class="seg-row"><span>Student 15-17 (เข้าถึงผ่าน broad/organic — ad targeting ขั้นต่ำ 18)</span><span>Bento 5฿</span></div>
+        <div class="seg-row"><span>University 18-21</span><span>Bento 20฿</span></div>
+        <div class="seg-row"><span>First Jobber 22-25</span><span>Bento 30฿</span></div>
+        <div class="seg-row"><span>Working Adult 26-34</span><span>Bento Max · บด 20฿</span></div>
+      </div>
+      <div class="tgt-card">
+        <h4>Interest Clusters</h4>
+        <div class="tags">
+          <span class="tag hot">Marvel / Spider-Man fan</span>
+          <span class="tag hot">Gamer · PS5</span>
+          <span class="tag hot">Spicy food lover</span>
+          <span class="tag">Superhero · Comics · Action Movies</span>
+          <span class="tag">Movie-goer · Cinema App (SF · Major)</span>
+          <span class="tag">Collector · Limited Edition · ของสะสม</span>
+          <span class="tag">Esports · Game Streaming</span>
+          <span class="tag">Cosplay · Pop-Culture Event</span>
+          <span class="tag">Mukbang · Food Review Content</span>
+          <span class="tag">Convenience store shopper</span>
+          <span class="tag">Street food culture</span>
+          <span class="tag">Social media heavy user · TikTok Trend</span>
+          <span class="tag">ดนตรี · แฟชั่น · Sneaker</span>
+          <span class="tag">Snack + เครื่องดื่ม / กับแกล้ม</span>
+        </div>
+        <h4 style="margin-top:24px">Exclusions ที่ตั้งทุก Ad Set</h4>
+        <div class="tags">
+          <span class="tag">Excl. Recent Eng (กัน ad fatigue)</span>
+          <span class="tag">Excl. คนโพสต์ร่วมสนุกแล้ว</span>
+          <span class="tag">Excl. audience ที่ overlap ข้าม ad set</span>
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+</section>
+
+
+
+<script>
+/* ============================================================
+   DATA — แก้ตัวเลข / วันที่ / โพสต์ ได้ที่ object นี้ที่เดียว
+   budget: บาท · flight: [วันเริ่มยิงแอด, วันสุดท้ายที่เงินรัน]
+   pillar: A=Nostalgia B=Product C=Promo D=Event
+   ============================================================ */
+const PILLAR = {A:'A · Nostalgia', B:'B · Product', C:'C · Promo', D:'D · Event'};
+
+const WEEKS = [
+  {w:'W1', d:'1–7 ก.ค.',        t:'Pre-launch',          phase:1},
+  {w:'W2', d:'8–14 ก.ค.',       t:'Launch Mechanic',     phase:1},
+  {w:'W3', d:'15–21 ก.ค.',      t:'Promo Live',          phase:2},
+  {w:'W4', d:'22–28 ก.ค.',      t:'Draw #1',             phase:2},
+  {w:'W5', d:'29 ก.ค.–4 ส.ค.',  t:'★ Premiere + Draw #2',phase:2, star:true},
+  {w:'W6', d:'5–11 ส.ค.',       t:'Draw #3',             phase:2},
+  {w:'W7', d:'12–18 ส.ค.',      t:'Draw #4',             phase:3},
+  {w:'W8', d:'19–25 ส.ค.',      t:'Draw #5',             phase:3},
+  {w:'W9', d:'26 ส.ค.',         t:'★ FINAL Draw #6',     phase:3, star:true},
+];
+
+const PHASES = [
+{
+  no:1, name:'BUILD-UP', period:'1 – 14 ก.ค.', weeks:'W1–W2 · 2 สัปดาห์',
+  goal:'Awareness', budget:90000, color:'#BE5F5C',
+  range:['2026-07-01','2026-07-29'],
+  bullets:['Tease 10 ลาย × 3 ตระกูล','Big Reveal วันที่ 8 ก.ค.','เพจหนังโพสต์พร้อมกัน 9 ก.ค.'],
+  posts:[
+    {d:'2026-07-01', title:'Mechanic Announce (teaser)', pillar:'C', owner:'bento', pot:'Bento · Promo',
+     note:'ทายในคอมเมนต์ · พุธหน้าเฉลย', budget:5000, flight:['2026-07-01','2026-07-07'],
+     how:'Meta Engagement-Post · Highest Volume'},
+    {d:'2026-07-03', title:'ใบ้ลายซองสะสม 10 ลาย', pillar:'A', owner:'bento', sep:true, pot:'งบแยก ฿20K',
+     note:'Tobey 2002 → 2026', budget:3333, flight:['2026-07-03','2026-07-08'],
+     how:'Meta Engagement-Post (ภาพ) · Broad 18-45'},
+    {d:'2026-07-06', title:'Nostalgia 4 ยุค Compilation', pillar:'A', owner:'bento', sep:true, pot:'งบแยก ฿20K',
+     note:'ภาพชุดเปรียบเทียบ 4 ยุค', budget:3333, flight:['2026-07-06','2026-07-12'],
+     how:'Meta Engagement-Post (Album ภาพ) · INT_Marvel·Movies'},
+    {d:'2026-07-08', title:'OFFICIAL LAUNCH — กิจกรรมตามหาซองพร้อมใบเสร็จ ลุ้นดูหนังรอบพิเศษ', pillar:'C', star:true, owner:'bento', pot:'Bento · Promo',
+     note:'Big Reveal + mechanic เต็มรูปแบบ', budget:15000, flight:['2026-07-08','2026-07-21'],
+     how:'Meta Engagement-Post + Reach · Broad + CA: Bento Eng 365D + LAL 1%'},
+    {d:'2026-07-09', title:'เพจหนัง โพสต์พร้อมกัน', pillar:'A', owner:'kol', pot:'Page หนัง',
+     note:'เพจหนัง ยิงพร้อมกันวันเดียว (ภาพ FB)', budget:70000, flight:['2026-07-09','2026-07-29'],
+     how:'Boost โพสต์เพจหนัง (ภาพ FB) · Meta Engagement · INT_Movies'},
+    {d:'2026-07-10', title:'Pack Reveal — เปิดตัว 10 ลาย', pillar:'B', owner:'bento', sep:true, pot:'งบแยก ฿20K',
+     note:'ลายไหนเด็ด ลายไหนหายาก', budget:3333, flight:['2026-07-10','2026-07-21'],
+     how:'Meta Carousel/Album (ภาพ) · INT_Snack·Collector'},
+    {d:'2026-07-13', title:'นึกย้อน 4 ยุค (Image series)', pillar:'A', owner:'bento', sep:true, pot:'งบแยก ฿20K',
+     note:'4-frame storytelling', budget:3333, flight:['2026-07-13','2026-07-19'],
+     how:'Meta Engagement-Post · CA: P1 Post Engagers'},
+  ]
+},
+{
+  no:2, name:'PEAK', period:'15 ก.ค. – 11 ส.ค.', weeks:'W3–W6 · 4 สัปดาห์',
+  goal:'Engagement', budget:692000, color:'#C3322F',
+  range:['2026-07-15','2026-08-20'],
+  bullets:['Promotion Live + Draw #1–3','Movie open 29 ก.ค. + Premiere','KOL สายรีวิว + Movie Review โพสต์พร้อมกัน'],
+  posts:[
+    {d:'2026-07-15', title:'ประกาศโปรเริ่มสะสม — Draw แรก 22 ก.ค.', pillar:'C', owner:'bento', pot:'Bento · Promo',
+     note:'แมคคานิคหลักของแคมเปญ · น้ำหนักงบเยอะสุดใน Bento Promo', budget:35000, flight:['2026-07-15','2026-08-11'],
+     how:'Meta Engagement-Post + Reach · CA: P1 Post Engagers + Broad'},
+    {d:'2026-07-16', title:'เพจโปรโมชั่นโพสต์พร้อมกัน', pillar:'C', owner:'kol', pot:'เพจโปรโมชั่น',
+     note:'เพจโปรโม 20 เพจ ยิงวันเดียวกัน (ภาพ FB)', budget:150000, flight:['2026-07-16','2026-08-20'],
+     how:'Boost โพสต์เพจโปรโม (ภาพ FB) · Meta Engagement · Broad + CA: All Eng'},
+    {d:'2026-07-17', title:'KOL สายรีวิวโพสต์พร้อมกันทุกคน', pillar:'B', owner:'kol', pot:'KOLs รีวิว',
+     note:'KOLs รีวิว ปูพรมวันเดียว · เลเวลความเผ็ด (วิดีโอ)', budget:400000, flight:['2026-07-17','2026-08-09'],
+     how:'TikTok Spark Ads · เทงบเข้าคลิปชนะทุก 3 วัน'},
+    {d:'2026-07-18', title:'ชี้เป้าพิกัดร้านค้า — 7-Eleven · Makro', pillar:'C', owner:'bento', pot:'Bento · Promo',
+     note:'ลายหายาก: Roller Squid + Max', budget:5000, flight:['2026-07-18','2026-07-28'],
+     how:'Meta Reach + Geo-fence รอบสาขา · freq cap 3/7d'},
+    {d:'2026-07-22', title:'Draw #1 + Movie Ticket Activity', pillar:'D', star:true, owner:'bento', pot:'Bento · Promo',
+     note:'ประกาศ พฤ. 23 ก.ค. 12:00 · บัตรหนัง 100 ที่นั่ง', budget:8000, flight:['2026-07-22','2026-07-28'],
+     how:'Meta Engagement-Post (ภาพ) · Broad + CA: All Eng'},
+    {d:'2026-07-29', title:'PREMIERE NIGHT + Draw #2 — LIVE @ SF Central World', pillar:'D', star:true, owner:'bento', pot:'Bento · Promo',
+     note:'Press 100 · Partner 50 · Lucky Consumers 350', budget:10000, flight:['2026-07-29','2026-08-04'],
+     how:'Meta Engagement-Post + Reach (Album ภาพงาน) · Geo-fence CW + Broad'},
+    {d:'2026-07-31', title:'KOLs สาย Movie Review โพสต์พร้อมกันทุกคน', pillar:'A', owner:'kol', pot:'ช่องหนัง',
+     note:'ช่องหนังรีวิวหลังหนังเข้า (วิดีโอ)', budget:80000, flight:['2026-07-31','2026-08-15'],
+     how:'Boost คลิปช่องหนัง (วิดีโอ) · Meta VDO ThruPlay · INT_Movies + CA: Premiere Eng'},
+    {d:'2026-08-05', title:'Draw #3 (PS5)', pillar:'C', owner:'bento', pot:'Bento · Promo',
+     note:'ประกาศ พฤ. 6 ส.ค. 12:00', budget:4000, flight:['2026-08-05','2026-08-08'],
+     how:'Meta Engagement · CA: All Eng + Broad'},
+    {d:'2026-08-07', title:'UGC ครบ 10 ลาย โชว์', pillar:'B', owner:'bento', sep:true, pot:'งบแยก ฿20K',
+     note:'#BentoSpiderManTH · ลุ้นเบนโตะยกลัง', budget:3333, flight:['2026-08-07','2026-08-18'],
+     how:'Meta Engagement (UGC reshare ภาพ) · CA: All Eng + Broad'},
+  ]
+},
+{
+  no:3, name:'TAIL', period:'12 – 26 ส.ค.', weeks:'W7–W9 · 2 สัปดาห์',
+  goal:'Loyalty · UGC', budget:18000, color:'#75756D',
+  range:['2026-08-12','2026-08-27'],
+  bullets:['Draw #4–6 (26 ส.ค. = FINAL)','UGC compilation peak','รวมยอด & Wrap-up'],
+  posts:[
+    {d:'2026-08-12', title:'Draw #4', pillar:'C', owner:'bento', pot:'Bento · Promo',
+     note:'ประกาศ พฤ. 13 ส.ค. 12:00', budget:3000, flight:['2026-08-12','2026-08-13'],
+     how:'Meta Reach + freq cap 3/7d · CA: All Eng'},
+    {d:'2026-08-14', title:'Personality Poll Game on Page (ทีมความเผ็ด)', pillar:'B', owner:'bento', pot:'Bento · Promo',
+     note:'เกมบนเพจ Bento วันเดียว · Sweet & Spicy / Web Shooter / Max', budget:2000, flight:['2026-08-14','2026-08-14'],
+     how:'Meta Engagement-Post (ภาพ poll) · CA: All Eng'},
+    {d:'2026-08-17', title:'ลุ้นจริง แจกจริง (ปิดรับ 18 ส.ค.)', pillar:'C', owner:'bento', pot:'Bento · Promo',
+     note:'Winner showcase · ปิดรับโพสต์เที่ยงคืน 18 ส.ค.', budget:3000, flight:['2026-08-17','2026-08-18'],
+     how:'Meta Reach · CA: All Eng · Excl. คนโพสต์แล้ว'},
+    {d:'2026-08-19', title:'Draw #5', pillar:'C', owner:'bento', pot:'Bento · Promo',
+     note:'ประกาศ พฤ. 20 ส.ค. 12:00', budget:3000, flight:['2026-08-19','2026-08-20'],
+     how:'Meta Reach + freq cap · CA: All Eng'},
+    {d:'2026-08-21', title:'Last Chance + Limited Stock', pillar:'B', owner:'bento', sep:true, pot:'งบแยก ฿20K',
+     note:'ลายหายากยังมีในร้าน · โอกาสสุดท้าย', budget:3335, flight:['2026-08-21','2026-08-25'],
+     how:'Meta Reach (ภาพ) · CA: All Eng'},
+    {d:'2026-08-24', title:'โค้งสุดท้าย ก่อน Final Draw', pillar:'C', owner:'bento', pot:'Bento · Promo',
+     note:'ปิดรับโพสต์เที่ยงคืน 25 ส.ค.', budget:3000, flight:['2026-08-24','2026-08-25'],
+     how:'Meta Reach + freq cap · CA: All Eng'},
+    {d:'2026-08-26', title:'FINAL Draw #6 — Wrap-up Live', pillar:'D', star:true, owner:'bento', pot:'Bento · Promo',
+     note:'LIVE FB · ขอบคุณทุกคนที่ "โตมาด้วยกัน"', budget:4000, flight:['2026-08-26','2026-08-27'],
+     how:'Meta Engagement-Post + Reach (ภาพสรุปแคมเปญ) · CA: All Eng + Broad'},
+  ]
+},
+];
+
+/* ============================================================ RENDER ============================================================ */
+const fmtTH = d => {
+  const dt = new Date(d+'T00:00:00');
+  const m = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'][dt.getMonth()];
+  return dt.getDate()+' '+m;
+};
+const fmtB = n => n>=1000 ? (n%1000===0 ? '฿'+(n/1000)+'K' : '฿'+n.toLocaleString('en-US')) : '฿'+n;
+const PCOLOR = {1:'#BE5F5C', 2:'#C3322F', 3:'#75756D'};
+
+/* --- week strip --- */
+document.getElementById('weekStrip').innerHTML = WEEKS.map(w=>`
+  <div class="wk" style="--pc:${PCOLOR[w.phase]}">
+    <span class="w">${w.w}</span>
+    <span class="d num">${w.d}</span>
+    <span class="t">${w.star?'<span class="star">★</span> ':''}${w.t.replace('★ ','')}</span>
+  </div>`).join('');
+
+/* --- weekly spend (กระจายงบ flight เฉลี่ยรายวัน แล้วรวมเป็นรายสัปดาห์) --- */
+const weekRanges = [
+  ['2026-07-01','2026-07-07'],['2026-07-08','2026-07-14'],['2026-07-15','2026-07-21'],
+  ['2026-07-22','2026-07-28'],['2026-07-29','2026-08-04'],['2026-08-05','2026-08-11'],
+  ['2026-08-12','2026-08-18'],['2026-08-19','2026-08-25'],['2026-08-26','2026-09-01'],
+];
+const ts = d => new Date(d+'T00:00:00').getTime();
+const DAY = 86400000;
+const spend = weekRanges.map(()=>0);
+PHASES.forEach(p => p.posts.forEach(post => {
+  const [s,e] = post.flight.map(ts);
+  const days = Math.round((e-s)/DAY)+1;
+  const perDay = post.budget/days;
+  for(let t=s; t<=e; t+=DAY){
+    weekRanges.forEach(([ws,we],i)=>{ if(t>=ts(ws)&&t<=ts(we)) spend[i]+=perDay; });
+  }
+}));
+const maxSpend = Math.max(...spend);
+const weekPhase = [1,1,2,2,2,2,3,3,3];
+document.getElementById('spendChart').innerHTML = spend.map((v,i)=>`
+  <div class="bar" style="--pc:${PCOLOR[weekPhase[i]]};height:${Math.max(4,(v/maxSpend)*130)}px">
+    <span class="lbl num">${Math.round(v/1000)}K</span>
+  </div>`).join('');
+document.getElementById('spendX').innerHTML = WEEKS.map(w=>`<span>${w.w}</span>`).join('');
+
+/* --- phase cards --- */
+document.getElementById('phaseGrid').innerHTML = PHASES.map((p,i)=>`
+  <div class="pcard" style="--pc:${p.color}" data-i="${i}">
+    <div class="ph">PHASE ${p.no} · ${p.name}</div>
+    <h3>${p.period}</h3>
+    <div class="pd num">${p.weeks}</div>
+    <ul>${p.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
+    <div class="pfoot">
+      <div class="goal">Goal<b>${p.goal}</b></div>
+      <div class="money">Media Budget<b class="num">${fmtB(p.budget)}</b></div>
+    </div>
+    <div class="hint">ดูแผนรายวัน + งบรายโพสต์
+      <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+  </div>`).join('');
+
+/* --- phase details --- */
+document.getElementById('phaseDetails').innerHTML = PHASES.map((p,i)=>{
+  const [rs,re] = p.range.map(ts);
+  const span = re-rs;
+  const rows = p.posts.map(post=>{
+    const dt = new Date(post.d+'T00:00:00');
+    const [fs,fe] = post.flight.map(ts);
+    const left = ((fs-rs)/span)*100;
+    const width = Math.max(3,((fe-fs)/span)*100);
+    return `
+    <div class="post-row">
+      <div class="pr-date">
+        <div class="dd num">${dt.getDate()}</div>
+        <div class="mm">${fmtTH(post.d).split(' ')[1]}</div>
+      </div>
+      <div class="pr-title">${post.star?'<span class="star">★</span> ':''}${post.title}</div>
+      <div class="pr-pillar"><span class="chip ${post.pillar}">${PILLAR[post.pillar]}</span></div>
+      <div class="pr-own"><span class="own ${post.owner}">${post.owner==='bento'?'เพจ Bento':'KOL'}</span>${post.note?`<small>${post.note}</small>`:''}</div>
+      <div class="pr-budget num">${fmtB(post.budget)}<small>${post.pot}</small></div>
+      <div class="flight">
+        <div class="track"></div>
+        <div class="fill" style="left:${left}%;width:${width}%"></div>
+        <span class="fl" style="left:${Math.min(left,72)}%">${fmtTH(post.flight[0])} → ${fmtTH(post.flight[1])}</span>
+      </div>
+    </div>`;
+  }).join('');
+  const mediaTotal = p.posts.filter(x=>!x.sep).reduce((s,x)=>s+x.budget,0);
+  const sepTotal = p.posts.filter(x=>x.sep).reduce((s,x)=>s+x.budget,0);
+  return `
+  <div class="pdetail" id="pd${i}" style="--pc:${p.color}">
+    <div class="pdetail-head">
+      <h4><span>PHASE ${p.no} · ${p.name}</span> — แผนรายวัน · ${p.period}</h4>
+      <div class="sum num">รวม ${p.posts.length} โพสต์ · media <b>${fmtB(mediaTotal)}</b>${sepTotal?` · งบแยก <b>${fmtB(sepTotal)}</b>`:''}</div>
+    </div>
+    <div class="row-head">
+      <span>วันโพสต์</span><span>คอนเทนต์</span><span>Pillar</span><span>Owner</span>
+      <span style="text-align:right">Media</span><span>Flight — เงินรันถึงวันไหน</span>
+    </div>
+    ${rows}
+  </div>`;
+}).join('');
+
+/* --- interactions --- */
+document.querySelectorAll('.pcard').forEach(card=>{
+  card.addEventListener('click',()=>{
+    const i = card.dataset.i;
+    const det = document.getElementById('pd'+i);
+    const wasOpen = det.classList.contains('open');
+    document.querySelectorAll('.pdetail').forEach(d=>d.classList.remove('open'));
+    document.querySelectorAll('.pcard').forEach(c=>c.classList.remove('active'));
+    if(!wasOpen){
+      det.classList.add('open');
+      card.classList.add('active');
+      setTimeout(()=>det.scrollIntoView({behavior:'smooth',block:'nearest'}),80);
+    }
+  });
+});
+/* เปิด Phase 2 (Peak) เป็น default */
+document.querySelector('.pcard[data-i="1"]').click();
+</script>
+</body>
+</html>
