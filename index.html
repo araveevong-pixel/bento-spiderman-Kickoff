@@ -229,6 +229,26 @@
     padding:1.5px 7px;border-radius:5px;color:var(--ink-2);white-space:nowrap;
   }
 
+  /* ---------- KPI TARGET ---------- */
+  .kpi{margin-top:8px}
+  .kpi-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+  .kpi-head h3{font-size:16px;font-weight:700}
+  .kpi-head .tot{font-size:13px;color:var(--ink-2)}
+  .kpi-head .tot b{font-size:16px;color:var(--red);font-weight:700;margin-left:4px}
+  .kpi-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+  table.kpi-t{width:100%;border-collapse:collapse;font-size:13px;min-width:660px}
+  table.kpi-t th,table.kpi-t td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--line)}
+  table.kpi-t th{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:600;background:#FCFCFA}
+  table.kpi-t td.r,table.kpi-t th.r{text-align:right}
+  table.kpi-t td.num{font-family:'Inter','IBM Plex Sans Thai',sans-serif;font-feature-settings:'tnum';font-weight:600}
+  table.kpi-t tr:last-child td{border-bottom:none}
+  table.kpi-t .plat{display:inline-block;font-size:10.5px;font-weight:600;padding:2px 9px;border-radius:99px}
+  table.kpi-t .plat.fb{background:var(--blue-soft);color:var(--blue)}
+  table.kpi-t .plat.tt{background:var(--dark-soft);color:var(--dark)}
+  table.kpi-t tr.total td{background:#FBF6F5;font-weight:700;border-top:2px solid var(--red)}
+  table.kpi-t tr.total td.num{color:var(--red)}
+  .kpi-note{font-size:12px;color:var(--ink-3);margin-top:12px}
+
   .tgt{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:52px}
   .tgt-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
   .tgt-card h4{font-size:14px;font-weight:700;margin-bottom:14px}
@@ -547,7 +567,33 @@
       </div>
     </div>
 
-    
+    <div class="kpi">
+      <div class="kpi-head">
+        <h3>เป้าหมาย KPI · รายก้อนการยิงแอด</h3>
+        <div class="tot">รวมทั้งแคมเปญ<b class="num">Reach 15.4M</b> ·<b class="num">View 80.8M</b></div>
+      </div>
+      <div class="kpi-wrap">
+        <table class="kpi-t">
+          <thead>
+            <tr>
+              <th>#</th><th>ก้อนการยิงแอด</th><th>Platform</th><th>Format</th>
+              <th class="r">งบ</th><th class="r">Reach (เป้า)</th><th class="r">View (เป้า)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="num">1</td><td>เพจหนัง</td><td><span class="plat fb">Meta / FB</span></td><td>ภาพ</td><td class="r num">฿70K</td><td class="r num">1.5M</td><td class="r num">5.0M</td></tr>
+            <tr><td class="num">2</td><td>ช่องหนัง</td><td><span class="plat tt">TikTok</span></td><td>วิดีโอ</td><td class="r num">฿80K</td><td class="r num">1.5M</td><td class="r num">7.0M</td></tr>
+            <tr><td class="num">3</td><td>เพจโปรโมชัน</td><td><span class="plat fb">Meta / FB</span></td><td>ภาพ</td><td class="r num">฿150K</td><td class="r num">2.0M</td><td class="r num">10.0M</td></tr>
+            <tr><td class="num">4</td><td>Bento · Promo</td><td><span class="plat fb">Meta / FB</span></td><td>ภาพ</td><td class="r num">฿100K</td><td class="r num">2.0M</td><td class="r num">8.0M</td></tr>
+            <tr><td class="num">5</td><td>KOLs รีวิว</td><td><span class="plat tt">TikTok</span></td><td>วิดีโอ Spark</td><td class="r num">฿400K</td><td class="r num">8.0M</td><td class="r num">50.0M</td></tr>
+            <tr><td class="num">6</td><td>คอนเทนต์เพจ Bento (non-promo) · งบแยก</td><td><span class="plat fb">Meta / FB</span></td><td>ภาพ</td><td class="r num">฿20K</td><td class="r num">0.4M</td><td class="r num">0.8M</td></tr>
+            <tr class="total"><td></td><td>รวม</td><td></td><td></td><td class="r num">฿820K</td><td class="r num">15.4M</td><td class="r num">80.8M</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="kpi-note">งบ ฿800K (ก้อน 1–5) + งบแยก ฿20K (ก้อน 6) · View ของ TikTok/วิดีโอลากสัดส่วนหลัก · ก้อนภาพเน้น Reach</p>
+    </div>
+
   </div>
 </section>
 
